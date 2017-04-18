@@ -8,10 +8,11 @@ import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.lazy.IBk;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
+import weka.core.converters.ConverterUtils;
 import weka.core.stemmers.NullStemmer;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToWordVector;
-
+import weka.core.converters.ConverterUtils.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,7 +20,8 @@ import java.io.FileWriter;
 public class TrainModel {
     public static void main(String a[]) throws Exception {
         String filename = "H://gmtest_01/";
-
+        /*Instances dataFiltered= DataSource.read("dataFiltered.arff");
+        DataSink.write("dataWritten.arff", dataFiltered);*/
         // convert the directory into a dataset
         TextDirectoryLoader loader = new TextDirectoryLoader();
         loader.setDirectory(new File(filename));

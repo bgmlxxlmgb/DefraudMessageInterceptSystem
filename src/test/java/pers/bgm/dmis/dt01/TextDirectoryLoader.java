@@ -148,7 +148,7 @@ public class TextDirectoryLoader extends AbstractLoader implements
      *
      * @return an enumeration of the available options
      */
-    @Override
+    /*@Override*/
     public Enumeration<Option> listOptions() {
 
         Vector<Option> result = new Vector<Option>();
@@ -205,7 +205,7 @@ public class TextDirectoryLoader extends AbstractLoader implements
      * @param options the options
      * @throws Exception if options cannot be set
      */
-    @Override
+    /*@Override*/
     public void setOptions(String[] options) throws Exception {
         setDebug(Utils.getFlag("D", options));
 
@@ -225,7 +225,7 @@ public class TextDirectoryLoader extends AbstractLoader implements
      *
      * @return the current setting
      */
-    @Override
+    /*@Override*/
     public String[] getOptions() {
         Vector<String> options = new Vector<String>();
 
@@ -643,7 +643,7 @@ public class TextDirectoryLoader extends AbstractLoader implements
      *
      * @return the revision
      */
-    @Override
+    /*@Override*/
     public String getRevision() {
         return RevisionUtils.extract("$Revision: 12184 $");
     }
@@ -664,7 +664,7 @@ public class TextDirectoryLoader extends AbstractLoader implements
      *
      * @throws Exception if a problem occurs during setup
      */
-    @Override
+    /*@Override*/
     public void preExecution() throws Exception {
     }
 
@@ -674,11 +674,11 @@ public class TextDirectoryLoader extends AbstractLoader implements
      *
      * @throws Exception if a problem occurs during teardown
      */
-    @Override
+    /*@Override*/
     public void postExecution() throws Exception {
     }
 
-    @Override
+    /*@Override*/
     public void run(Object toRun, String[] args) throws IllegalArgumentException {
         if (!(toRun instanceof TextDirectoryLoader)) {
             throw new IllegalArgumentException("Object to execute is not a "

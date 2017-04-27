@@ -5,8 +5,8 @@
     <entry key="ext_dict">auto_comments_IKAnalyzer.txt;
         food_comments_IKAnalyzer.txt;
         news_IKAnalyzer.txt;
-        weibo_IKAnalyzer.txt
     </entry>
+    <!--weibo_IKAnalyzer.txt-->
     <!--用户可以在这里配置自己的扩展字典
     <entry key="ext_dict">ext.dic;</entry>
     -->

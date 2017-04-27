@@ -4,8 +4,10 @@ package pers.bgm.dmis.dt01;
  * Created by Administrator on 2017/4/16.
  */
 
+import weka.classifiers.Evaluation;
 import weka.classifiers.bayes.NaiveBayes;
 import weka.classifiers.lazy.IBk;
+import weka.core.Debug;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 import weka.core.converters.ConverterUtils;
@@ -19,16 +21,17 @@ import java.io.FileWriter;
 
 public class TrainModel {
     public static void main(String a[]) throws Exception {
-        String filename = "H://gmtest_01/";
+        String filename = "F:/mess/target";
         /*Instances dataFiltered= DataSource.read("dataFiltered.arff");
         DataSink.write("dataWritten.arff", dataFiltered);*/
         // convert the directory into a dataset
         TextDirectoryLoader loader = new TextDirectoryLoader();
         loader.setDirectory(new File(filename));
         Instances dataRaw = loader.getDataSet();
+        //dataRaw.setClassIndex(dataRaw.numAttributes()-1);
         //System.out.println("\n\nImported data:\n\n" + dataRaw);
         {
-            FileWriter fw = new FileWriter("H://dataRaw.arff");
+            FileWriter fw = new FileWriter("F:/mess/dataRaw.arff");
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(dataRaw.toString());
@@ -42,7 +45,7 @@ public class TrainModel {
         filter.setInputFormat(dataRaw);
         Instances dataFiltered = Filter.useFilter(dataRaw, filter);
         {
-            FileWriter fw = new FileWriter("H://dataFiltered.arff");
+            FileWriter fw = new FileWriter("F:/mess/dataFiltered.arff");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(dataFiltered.toString());
             bw.close();
@@ -66,22 +69,22 @@ public class TrainModel {
         IBk ibk = new IBk();
         ibk.setKNN(3);
         ibk.buildClassifier(dataFiltered);
-        SerializationHelper.write("H://ibk.model", ibk);
+        //classifier.buildClassifier(dataFiltered);
+        for (int i = 0; i < 50; i++) {
+            double p = ibk.classifyInstance(dataFiltered.instance(i));
+            String category = dataFiltered.classAttribute().value((int) p);
+            System.out.println("the sample is belong to: " + category);
+        }
+        //SerializationHelper.write("F:/mess/ibk.model", ibk);
         /*for(int i=0;i<dataFiltered.numInstances();i++){
             System.out.println(ibk.classifyInstance(dataFiltered.instance(i)));
         }
-
         System.out.println("\n\nClassifier model:\n\n" + ibk);*/
-
-
-
-
-
-        /*Evaluation eval = new Evaluation(dataFiltered);
-        eval.crossValidateModel(ibk, dataFiltered, 10, new Random(1));
+        Evaluation eval = new Evaluation(dataFiltered);
+        eval.crossValidateModel(ibk, dataFiltered, 10, new Debug.Random(1));
         System.out.println(eval.toClassDetailsString());
         System.out.println(eval.toSummaryString());
         System.out.println(eval.toMatrixString());
-        System.out.println(eval.errorRate());*/
+        System.out.println(eval.errorRate());
     }
 }

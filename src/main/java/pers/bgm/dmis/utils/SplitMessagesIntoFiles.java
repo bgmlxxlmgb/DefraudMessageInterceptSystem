@@ -92,7 +92,7 @@ public class SplitMessagesIntoFiles {
                 String message = getWordsString(value);
                 if (message != null) {
                     String type = target.split("\\\\")[target.split("\\\\").length - 1];
-                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 100000) + ".txt";
+                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 1000000) + ".txt";
                     messageFile = new File(messageFileName);
                     fw = new FileWriter(messageFile);
                     bw = new BufferedWriter(fw);

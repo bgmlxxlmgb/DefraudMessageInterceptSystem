@@ -24,7 +24,7 @@ public class T02 {
         loader.setDirectory(new File("F:\\mess\\test\\targetdata"));
         Instances sampleRaw = loader.getDataSet();
         System.out.println(sampleRaw);
-       /*StringToWordVector filter = new StringToWordVector();
+        StringToWordVector filter = new StringToWordVector();
        filter.setStemmer(new NullStemmer());
        filter.setInputFormat(sampleRaw);
        Instances testFiltered = Filter.useFilter(sampleRaw, filter);
@@ -54,16 +54,16 @@ public class T02 {
                    }
                }
            }
-           double prediction = classifier.classifyInstance(inst);
+           System.out.println(inst);
+           /*double prediction = classifier.classifyInstance(inst);
            String category = trainheader.classAttribute().value((int) prediction);
            long end = System.currentTimeMillis();
            System.out.println("the sample[" + i + "] is belong to: " + category+";cost seconds:"+(end-start)+" ms");
            sum+=end-start;
-           count++;
+           count++;*/
        }
        if(testFiltered.numInstances()==0)
            System.out.println("there is no instance found in the arff file.");
-
-       System.out.println("average cost:"+(sum/count)+" ms");*/
+        //System.out.println("average cost:"+(sum/count)+" ms");
     }
 }

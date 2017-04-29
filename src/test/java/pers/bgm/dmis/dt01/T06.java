@@ -16,7 +16,7 @@ public class T06 {
         Attribute a2 = new Attribute("@@class@@", classes);
         atts.addElement(a1);
         atts.addElement(a2);
-        Instances rel_struct = new Instances("single_message", atts, 1);
+        Instances rel_struct = new Instances("single_message", atts, 0);
         System.out.println(rel_struct);
     }
 }

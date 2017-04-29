@@ -19,13 +19,16 @@ public class SplitMessagesIntoFiles {
 
     private static String SOURCE_DIR = "";
     private static String TARGET_DIR = "";
-    static Logger logger;
+
+    public static Logger logger;
+
 
     public static void initial() {
         logger = LoggerUtil.getLogger();
         try {
             SOURCE_DIR = GainConfigValue.getValue("source_message_dir");
             TARGET_DIR = GainConfigValue.getValue("target_message_dir");
+
         } catch (Exception e) {
             logger.error(e.getMessage());
             logger.debug(e.getMessage());
@@ -52,7 +55,6 @@ public class SplitMessagesIntoFiles {
             }
         }
     }
-
     //拆分文件，每个文件每行分词，一个文件分词后还是一个文件
     public void segmentFileInOneFile(String sourceFile, String targetFile, String target) {
         try {
@@ -92,7 +94,7 @@ public class SplitMessagesIntoFiles {
                 String message = getWordsString(value);
                 if (message != null) {
                     String type = target.split("\\\\")[target.split("\\\\").length - 1];
-                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 1000000) + ".txt";
+                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 100000000) + ".txt";
                     messageFile = new File(messageFileName);
                     fw = new FileWriter(messageFile);
                     bw = new BufferedWriter(fw);
@@ -112,10 +114,11 @@ public class SplitMessagesIntoFiles {
     }
 
     //拆分文本行
-    public static String getWordsString(String text) {
+    public static synchronized String getWordsString(String text) {
         String value = "";
         try {
             Analyzer anal = new IKAnalyzer(true);
+            ;
             StringReader reader = new StringReader(text);
             //分词
             TokenStream ts = anal.tokenStream("", reader);
@@ -123,12 +126,11 @@ public class SplitMessagesIntoFiles {
             while (ts.incrementToken()) {
                 value += term.toString() + " ";
             }
-            reader.close();
+            reader = null;
+            //reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return value;
     }
-
-
 }

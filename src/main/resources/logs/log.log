@@ -1,8 +1,4 @@
-2017-04-21 00:54:47  [ main:0 ] - [ DEBUG ]  D:\graduate\data\messages\target\1\D:\graduate\data\messages\source\1-65081.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:54:47  [ main:3 ] - [ ERROR ]  D:\graduate\data\messages\target\1\D:\graduate\data\messages\source\1-65081.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:54:47  [ main:5 ] - [ DEBUG ]  D:\graduate\data\messages\target\2\D:\graduate\data\messages\source\2-83446.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:54:47  [ main:6 ] - [ ERROR ]  D:\graduate\data\messages\target\2\D:\graduate\data\messages\source\2-83446.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:56:05  [ main:0 ] - [ DEBUG ]  D:\graduate\data\messages\target\1\D:\graduate\data\messages\source\1-73681.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:56:05  [ main:3 ] - [ ERROR ]  D:\graduate\data\messages\target\1\D:\graduate\data\messages\source\1-73681.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:56:05  [ main:6 ] - [ DEBUG ]  D:\graduate\data\messages\target\2\D:\graduate\data\messages\source\2-73521.txt (文件名、目录名或卷标语法不正确。)
-2017-04-21 00:56:05  [ main:7 ] - [ ERROR ]  D:\graduate\data\messages\target\2\D:\graduate\data\messages\source\2-73521.txt (文件名、目录名或卷标语法不正确。)
+2017-04-29 16:14:27  [ main:0 ] - [ ERROR ]  未找到属性名  对应的属性值！
+2017-04-29 16:14:27  [ main:11 ] - [ DEBUG ]  未找到属性名  对应的属性值！
+2017-04-29 17:40:52  [ main:0 ] - [ DEBUG ]  D:\graduate\data\messages\target\0\0-569401.txt (系统找不到指定的路径。)
+2017-04-29 17:40:52  [ main:7 ] - [ ERROR ]  D:\graduate\data\messages\target\0\0-569401.txt (系统找不到指定的路径。)

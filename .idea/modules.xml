@@ -3,9 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DefraudMessageInterceptSystem.iml" filepath="$PROJECT_DIR$/DefraudMessageInterceptSystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MessageUpdateSystem/MessageUpdateSystem.iml" filepath="$PROJECT_DIR$/MessageUpdateSystem/MessageUpdateSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/ModelTrainSystem/ModelTrainSystem.iml" filepath="$PROJECT_DIR$/ModelTrainSystem/ModelTrainSystem.iml" />
-      <module fileurl="file://$PROJECT_DIR$/VisualMonitorSystem/VisualMonitorSystem.iml" filepath="$PROJECT_DIR$/VisualMonitorSystem/VisualMonitorSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RealMonitorSystem/RealMonitorSystem.iml" filepath="$PROJECT_DIR$/RealMonitorSystem/RealMonitorSystem.iml" />
     </modules>
   </component>
 </project>

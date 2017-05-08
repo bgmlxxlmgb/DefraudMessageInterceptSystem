@@ -32,7 +32,7 @@ public class SingleMessageProcessUtil {
             trainheader.setClassIndex(0);
 
             //加载分类器
-            classifier = (Classifier) weka.core.SerializationHelper.read("F:/mess/ibk.model");
+            classifier = (Classifier) weka.core.SerializationHelper.read(GainConfigValue.getValue("trained_model_path"));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -49,7 +49,7 @@ public class SingleMessageProcessUtil {
         attrs.addElement(att2);
         Instances dataset = new Instances("single_message", attrs, 0);
         Instance example = new DenseInstance(2);
-        message = "'" + message + "\r\n'";
+        message = message + "\r\n";
         example.setValue(att1, message);
         example.setValue(att2, Utils.missingValue());
         dataset.add(example);

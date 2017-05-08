@@ -21,21 +21,19 @@ import java.io.FileWriter;
 
 public class TrainModel {
     public static void main(String a[]) throws Exception {
-        String filename = "F:/mess/target";
+        String filename = "F:/mess/target02";
         /*Instances dataFiltered= DataSource.read("dataFiltered.arff");
         DataSink.write("dataWritten.arff", dataFiltered);*/
         // convert the directory into a dataset
         TextDirectoryLoader loader = new TextDirectoryLoader();
         loader.setDirectory(new File(filename));
         Instances dataRaw = loader.getDataSet();
-        //dataRaw.setClassIndex(dataRaw.numAttributes()-1);
+        dataRaw.setClassIndex(dataRaw.numAttributes() - 1);
         //System.out.println("\n\nImported data:\n\n" + dataRaw);
         {
-            FileWriter fw = new FileWriter("F:/mess/dataRaw.arff");
+            FileWriter fw = new FileWriter("F:/mess/dataRaw_02.arff");
             BufferedWriter bw = new BufferedWriter(fw);
-
             bw.write(dataRaw.toString());
-
             bw.close();
             fw.close();
         }
@@ -45,13 +43,12 @@ public class TrainModel {
         filter.setInputFormat(dataRaw);
         Instances dataFiltered = Filter.useFilter(dataRaw, filter);
         {
-            FileWriter fw = new FileWriter("F:/mess/dataFiltered.arff");
+            FileWriter fw = new FileWriter("F:/mess/dataFiltered_02.arff");
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(dataFiltered.toString());
             bw.close();
             fw.close();
         }
-        //System.out.println("\n\nFiltered data:\n\n" + dataFiltered);
         dataFiltered.setClassIndex(0);
         // train J48 and output model
         /*J48 model = new J48();
@@ -65,16 +62,15 @@ public class TrainModel {
             System.out.println(model.classifyInstance(dataFiltered.instance(i)));
         }
         System.out.println("res:"+res);*/
-        NaiveBayes classifier = new NaiveBayes();
         IBk ibk = new IBk();
         ibk.setKNN(3);
         ibk.buildClassifier(dataFiltered);
         //classifier.buildClassifier(dataFiltered);
-        for (int i = 0; i < 50; i++) {
+        /*for (int i = 0; i < 50; i++) {
             double p = ibk.classifyInstance(dataFiltered.instance(i));
             String category = dataFiltered.classAttribute().value((int) p);
             System.out.println("the sample is belong to: " + category);
-        }
+        }*/
         //SerializationHelper.write("F:/mess/ibk.model", ibk);
         /*for(int i=0;i<dataFiltered.numInstances();i++){
             System.out.println(ibk.classifyInstance(dataFiltered.instance(i)));

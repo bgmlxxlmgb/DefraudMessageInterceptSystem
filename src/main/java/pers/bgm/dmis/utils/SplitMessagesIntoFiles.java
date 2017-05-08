@@ -15,10 +15,12 @@ import java.io.*;
  * function:将源文件夹里的所有文件及文件夹原样的在目标文件夹里复制一份。不同的是每个类别的文件夹里，一条短信占一个文件并分好词
  */
 
-public class SplitMessagesIntoFiles {
+public class SplitMessagesIntoFiles implements Runnable {
 
     private static String SOURCE_DIR = "";
     private static String TARGET_DIR = "";
+    public static String current01 = "";
+    public static String current_02 = "";
 
     public static Logger logger;
 
@@ -94,7 +96,7 @@ public class SplitMessagesIntoFiles {
                 String message = getWordsString(value);
                 if (message != null) {
                     String type = target.split("\\\\")[target.split("\\\\").length - 1];
-                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 100000000) + ".txt";
+                    String messageFileName = target + File.separator + type + "-" + (int) (Math.random() * 1000000) + ".txt";
                     messageFile = new File(messageFileName);
                     fw = new FileWriter(messageFile);
                     bw = new BufferedWriter(fw);
@@ -132,5 +134,9 @@ public class SplitMessagesIntoFiles {
             e.printStackTrace();
         }
         return value;
+    }
+
+    public void run() {
+
     }
 }

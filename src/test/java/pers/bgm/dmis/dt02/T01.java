@@ -18,14 +18,15 @@ public class T01 {
         String message = "恭喜您！您的号码已被李咏砸蛋抽中，请您登录非常6+1活动网站领取http://www.xxxxx。";
         String message_01 = "中华人民共和国！";
         String message_02 = "张三，明天如果你还不还钱，我就在明晚11点在你家吃饭！";
+        //String message_02 = "我是吴彦祖，我正在一个深山里拍戏，有一段武打戏我被打飞，现在我和剧组失去了联系，一个人在山里身无分文，我乱输入的一个号码，就找到了你。实在是缘分，你能给我打1000块钱吗？";
         String dataFilteredPath = "F:/mess/dataFiltered.arff";
         String category = SingleMessageProcessUtil.estimateSingleMessage(SingleMessageProcessUtil.transMessageToInstances(message), message, dataFilteredPath);
         System.out.println("该短信属于：" + category);
 
-        String category_01 = SingleMessageProcessUtil.estimateSingleMessage(SingleMessageProcessUtil.transMessageToInstances(message), message, dataFilteredPath);
+        String category_01 = SingleMessageProcessUtil.estimateSingleMessage(SingleMessageProcessUtil.transMessageToInstances(message_01), message_01, dataFilteredPath);
         System.out.println("该短信属于：" + category_01);
 
-        String category_02 = SingleMessageProcessUtil.estimateSingleMessage(SingleMessageProcessUtil.transMessageToInstances(message), message, dataFilteredPath);
+        String category_02 = SingleMessageProcessUtil.estimateSingleMessage(SingleMessageProcessUtil.transMessageToInstances(message_02), message_02, dataFilteredPath);
         System.out.println("该短信属于：" + category_02);
 
 

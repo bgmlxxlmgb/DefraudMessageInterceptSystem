@@ -22,14 +22,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="MessageUpdateSystem" />
         <module name="ModelTrainSystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="DefraudMessageInterceptSystem" target="1.5" />
-      <module name="MessageUpdateSystem" target="1.5" />
-      <module name="ModelTrainSystem" target="1.5" />
+      <module name="DefraudMessageInterceptSystem" target="1.6" />
+      <module name="MessageUpdateSystem" target="1.6" />
+      <module name="ModelTrainSystem" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
